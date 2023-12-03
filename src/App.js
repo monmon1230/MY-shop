@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import HomePage from "./Page/Home/HomePage";
+import { BrowserRouter,Routes,Route } from "react-router-dom";
+import NavBarLogin from "./Page/Home/Uitily/NavBarLogin";
+import Footer from "./Page/Home/Uitily/Footer";
+import Login from "./Page/Auth/Login";
+import RegisterPage from './Page/Auth/RegisterPage'
+import AllCategoryPage from "./Page/Category/AllCategoryPage";
+import AllBrandPage from "./Page/Auth/brand/AllBrandPage";
+import ShopProductsPage from "./Page/Products/ShopProductsPage";
+import ProductDetailsPage from "./Page/Products/ProductDetailsPage";
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="font" >
+     <NavBarLogin/>
+    <BrowserRouter>
+      <Routes>
+      <Route index element={<HomePage/>}/>
+      <Route path="/Login" element={<Login/>}/>
+      <Route path="/register" element={<RegisterPage/>}/>
+      <Route path="/AllCategoryPage" element={<AllCategoryPage/>}/>
+      <Route path="/AllBrandPage" element={<AllBrandPage/>}/>
+      <Route path="/Products" element={<ShopProductsPage/>}/>
+      <Route path="/Products/:id" element={<ProductDetailsPage/>}/>
+      </Routes>
+      </BrowserRouter>
+      <Footer/>
+  
+    
     </div>
   );
+
 }
 
 export default App;
